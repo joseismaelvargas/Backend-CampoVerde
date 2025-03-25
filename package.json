@@ -1,0 +1,23 @@
+{
+  "name": "backend-campoverde",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+ "scripts": {
+    "start": "node index.js",
+    "dev": "node --env-file .env --watch index.js"
+  },
+  "keywords": [ "middleware",
+  "MongoDB",
+  "Base de datos",
+  "ExpressJs"],
+  "author": "Ismael Vargas",
+  "license": "ISC",
+  "description": "Backend Hotel campo verde",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.0",
+    "morgan": "^1.10.0"
+  }
+}

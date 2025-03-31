@@ -35,7 +35,7 @@ export const borrarHabitacion=async(req,res)=>{
             return res.status(404).json({mensaje:"No se econtro la habitacion"})
 
         }
-        await HAbitacion.findByIdAndDelete(req.params.id)
+        await Habitacion.findByIdAndDelete(req.params.id)
         res.status(200).json({mensaje:"El delete ocurrio con exito"})
 
     }catch(error){

@@ -42,3 +42,19 @@ export const borrarHabitacion=async(req,res)=>{
         res.status(500).json({mensaje:"Ocurrio un error al querer borrar"})
     }
 }
+export const editarHabitacion=async(req,res)=>{
+    try{
+           const habitacionBuscada=await HAbitacion.findById(req.params.id)
+           if (!habitacionBuscada) {
+            return res
+              .status(404)
+              .json({ mensaje: "La habitacion solicitada no existe" });
+          }
+           await HAbitacion.findByIdAndUpdate(req.params.id, req.body);
+          res.status(200).json({mensaje:"El edit ocurrio con exito"})
+
+    }catch(error){
+        console.log(error)
+        res.status(500).json({mensaje:"Ocurrio un error al editar"})
+    }
+}

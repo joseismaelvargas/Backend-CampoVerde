@@ -10,7 +10,7 @@ import routerhabitacion from './src/routes/habitaciones.routes.js';
 
 const app=express();
 
-app.set('port',process.env.PORT||4000);
+app.set('port',process.env.PORT||3000);
 
 app.listen(app.get('port'),()=>{
     console.info("Se conecto el puerto "+app.get('port'))
@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
-console.log(__dirname)
+
 app.use(express.static(path.join(__dirname,'/public')))
 
 

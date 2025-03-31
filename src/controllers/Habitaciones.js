@@ -14,3 +14,31 @@ export const crearHabitacion=async(req,res)=>{
         res.status(500).json({mensaje:"Ocurrio un error , no se pudo crear la habitacion"})
     }
 }
+// Borrrar
+
+export const mostrarHAbitacion=async(req,res)=>{
+    try{
+        const habitaciones=await HAbitacion.find()
+        res.status(200).json(habitaciones)
+
+
+    }catch(error){
+        console.log(error)
+        res.status(500).json({mensaje:"Ocurrio un error al mostrar las habitaciones"})
+    }
+}
+export const borrarHabitacion=async(req,res)=>{
+    try{
+        const borrar=await HAbitacion.findById(req.params.id)
+        if(!borrar){
+            return res.status(404).json({mensaje:"No se econtro la habitacion"})
+
+        }
+        await HAbitacion.findByIdAndDelete(req.params.id)
+        res.status(200).json({mensaje:"El delete ocurrio con exito"})
+
+    }catch(error){
+        console.log(error)
+        res.status(500).json({mensaje:"Ocurrio un error al querer borrar"})
+    }
+}

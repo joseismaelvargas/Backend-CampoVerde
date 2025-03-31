@@ -51,7 +51,7 @@ export const editarHabitacion=async(req,res)=>{
               .status(404)
               .json({ mensaje: "La habitacion solicitada no existe" });
           }
-           await HAbitacion.findByIdAndUpdate(req.params.id, req.body);
+           await Habitacion.findByIdAndUpdate(req.params.id, req.body);
           res.status(200).json({mensaje:"El edit ocurrio con exito"})
 
     }catch(error){

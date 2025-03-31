@@ -11,7 +11,8 @@ export const crearHabitacion=async(req,res)=>{
         res.status(201).json({mensaje:"La  habitacion Fue Creada con exito"})
     }catch(error){
         console.error(error)
-        res.status(500).json({mensaje:"Ocurrio un error , no se pudo crear la habitacion"})
+        console.error("Error al crear habitación:", error.message);
+        res.status(500).json({ mensaje: "Error interno", error: error.message });
     }
 }
 // Borrrar

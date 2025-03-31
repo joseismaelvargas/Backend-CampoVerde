@@ -1,4 +1,4 @@
-import HAbitacion from "../database/model/model.js"
+import Habitacion from "../database/model/model.js"
 
 export const prueba = (req, res) => {
     res.status(200).json({ mensaje: "Funciona correctamente" });
@@ -6,7 +6,7 @@ export const prueba = (req, res) => {
 //CREAR
 export const crearHabitacion=async(req,res)=>{
     try{
-        const habitacionNueva=new HAbitacion(req.body);
+        const habitacionNueva=new Habitacion(req.body);
         await habitacionNueva.save();
         res.status(201).json({mensaje:"La  habitacion Fue Creada con exito"})
     }catch(error){
@@ -18,7 +18,7 @@ export const crearHabitacion=async(req,res)=>{
 
 export const mostrarHAbitacion=async(req,res)=>{
     try{
-        const habitaciones=await HAbitacion.find()
+        const habitaciones=await Habitacion.find()
         res.status(200).json(habitaciones)
 
 
@@ -29,7 +29,7 @@ export const mostrarHAbitacion=async(req,res)=>{
 }
 export const borrarHabitacion=async(req,res)=>{
     try{
-        const borrar=await HAbitacion.findById(req.params.id)
+        const borrar=await Habitacion.findById(req.params.id)
         if(!borrar){
             return res.status(404).json({mensaje:"No se econtro la habitacion"})
 
@@ -44,7 +44,7 @@ export const borrarHabitacion=async(req,res)=>{
 }
 export const editarHabitacion=async(req,res)=>{
     try{
-           const habitacionBuscada=await HAbitacion.findById(req.params.id)
+           const habitacionBuscada=await Habitacion.findById(req.params.id)
            if (!habitacionBuscada) {
             return res
               .status(404)

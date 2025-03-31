@@ -40,5 +40,5 @@ const habitacionSchema=new Schema({
 
 })
 
-const HAbitacion=mongoose.model("habitacion",habitacionSchema)
-export default HAbitacion
+const Habitacion=mongoose.model("Habitacion",habitacionSchema)
+export default Habitacion

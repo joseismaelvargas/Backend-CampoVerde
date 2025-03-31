@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose"; 
 const habitacionSchema=new Schema({
-     tipo:{
+     opciones:{
         type:String,
         required:true,
   

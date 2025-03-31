@@ -1,8 +1,9 @@
 import mongoose, { Schema } from "mongoose"; 
 const habitacionSchema=new Schema({
-     opciones:{
+     tipo:{
         type:String,
         required:true,
+  
         minLength:3,
         maxLength:1000,
         
@@ -10,14 +11,14 @@ const habitacionSchema=new Schema({
      precio:{
         type:Number,
         required:true,
-        min:50,
+        min:1,
         max:10000
      },
      info:{
       type:String,
       required:true,
       minLength:3,
-        maxLength:300,
+        maxLength:3000,
      },
      imagen1: {
         type: String,

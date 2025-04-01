@@ -7,5 +7,5 @@ mongoose.connect(mongodb);
 const infoConecion=mongoose.connection;
 
 infoConecion.once('open',()=>{
-    console.info('Base de dato Conectada')
+    console.info('Base de dato Conectada bdhabitaciones')
 })

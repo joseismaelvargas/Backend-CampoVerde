@@ -15,9 +15,8 @@ export const crearReservas=async (req,res)=>{
           personas,
           tipo,
         });
-         
-         console.log(reservaEcha);
-         new reservaEcha.save()
+     
+         await reservaEcha.save()
          res.status(201).json({messaje:"La reserva fue echa con exito"})
     }catch(error){
      console.error(error)
@@ -28,7 +27,7 @@ export const crearReservas=async (req,res)=>{
 
 export const mostrarReserva=async(req,res)=>{
     try{
-        const usuario=await Reserva.find()
+        const usuario=await Reservas.find()
         res.status(200).json(usuario)
 
 
@@ -40,13 +39,13 @@ export const mostrarReserva=async(req,res)=>{
 
 export const editarReserva=async(req,res)=>{
     try{
-           const reserva=await Reserva.findById(req.params.id)
+           const reserva=await Reservas.findById(req.params.id)
            if (!reserva) {
             return res
               .status(404)
               .json({ mensaje: " La reserva solicitado no existe" });
           }
-           await reserva.findByIdAndUpdate(req.params.id, req.body);
+           await Reservas.findByIdAndUpdate(req.params.id, req.body);
           res.status(200).json({mensaje:"El edit ocurrio con exito"})
 
     }catch(error){
@@ -57,11 +56,13 @@ export const editarReserva=async(req,res)=>{
 
 export const eliminarReserva=async (req,res)=>{
  try{
-   const deleteReserva=await  Reserva.findById(req.params.id)
+   const deleteReserva=await Reservas.findById(req.params.id)
     if(!deleteReserva){
         res.status(404).json({menssaje:"No se encontro la reserva"})
     }
+    await Reservas.findByIdAndDelete(req.params.id)
+        res.status(200).json({mensaje:"El delete ocurrio con exito"})
  }catch(error){
-    console.error(error)
+   res.status(500).json({mensaje:"ocurrio un error"})
  }
 }

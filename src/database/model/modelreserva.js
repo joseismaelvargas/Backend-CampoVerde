@@ -22,7 +22,7 @@ const reservaSchema = new Schema({
       
       required:[true, 'La fecha de entrada obligatoria'],
       match: [
-        /^\d{1,2}\/\d{1,2}\/\d{4}$/,
+        /^\d{1,2}\-\d{1,2}\-\d{4}$/,
         'La fecha debe estar en el formato "dd/mm/yyyy a dd/mm/yyyy"',
       ],
     },
@@ -31,7 +31,7 @@ const reservaSchema = new Schema({
         type:String,
         required:[true, 'La fecha de salida es obligatoria'],
         match: [
-          /^\d{1,2}\/\d{1,2}\/\d{4}$/,
+          /^\d{1,2}\-\d{1,2}\-\d{4}$/,
           'La fecha debe estar en el formato "dd/mm/yyyy a dd/mm/yyyy"',
         ],
      

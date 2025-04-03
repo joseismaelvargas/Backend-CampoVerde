@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import path from 'path';
 import "./src/database/dbconetion.js"
-// import "./src/database/dbusuarios.js"
+
 import { fileURLToPath } from 'url';
 import routerhabitacion from './src/routes/habitaciones.routes.js';
 

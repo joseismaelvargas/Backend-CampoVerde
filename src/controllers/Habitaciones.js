@@ -59,3 +59,36 @@ export const editarHabitacion=async(req,res)=>{
         res.status(500).json({mensaje:"Ocurrio un error al editar"})
     }
 }
+
+
+export const reservarhabitacion = async (req, res) => {
+    try {
+      const habitacionBuscada = await Habitacion.findById(req.params.id);
+  
+      if (!habitacionBuscada) {
+        return res.status(404).json({ mensaje: "Habitación no encontrada" });
+      }
+  
+      const { fechaEntrada, fechaSalida } = req.body;
+  
+      const nuevaReserva = {
+        fechaEntrada,
+        fechaSalida,
+      };
+  
+      await Habitacion.updateOne(
+        { _id: habitacionBuscada._id },
+        {
+          $push: {
+            fechasReservadas: nuevaReserva,
+          },
+        }
+      );
+  
+      return res.status(200).json({ mensaje: "Reserva agregada correctamente" });
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(500)
+        .json({ mensaje: "Ocurrió un error en el Backend" });
+    }}

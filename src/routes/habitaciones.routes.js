@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { mostrarUsuario,borrarUsuario,editarUsuario } from "../controllers/Usuarios.js";
-import { crearHabitacion,borrarHabitacion, mostrarHAbitacion, editarHabitacion} from "../controllers/Habitaciones.js";
+import { crearHabitacion,borrarHabitacion, mostrarHAbitacion, editarHabitacion, reservarhabitacion} from "../controllers/Habitaciones.js";
 import { crearUsuario } from "../controllers/Usuarios.js";
 import { prueba } from "../controllers/Habitaciones.js";
 import { mostrarReserva,crearReservas, eliminarReserva, editarReserva } from "../controllers/reservas.js";
@@ -10,6 +10,7 @@ router.route('/crear').post(crearHabitacion).get(mostrarHAbitacion)
 router.route('/editarHabitacion/:id').put(editarHabitacion)
 router.route('/eliminarHabitacion/:id').delete(borrarHabitacion)
 router.route('/').get(prueba),
+router.route('/reservarhabitacion/:id').post(reservarhabitacion)
 
 router.route('/crearUsuario').post(crearUsuario)
 router.route('/verusuarios').get(mostrarUsuario)

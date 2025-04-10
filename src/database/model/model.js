@@ -38,7 +38,13 @@ const habitacionSchema=new Schema({
         maxLength:1000,
        minLength:10,
       },
-
+      fechasReservadas: [
+         {
+           fechaEntrada: { type:String, required: true },
+         fechaSalida: { type: String, required: true } 
+         }
+         
+       ]
 })
 
 const Habitacion=mongoose.model("Habitacion",habitacionSchema)

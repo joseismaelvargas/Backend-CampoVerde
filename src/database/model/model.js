@@ -18,7 +18,7 @@ const habitacionSchema=new Schema({
       type:String,
       required:true,
       minLength:3,
-        maxLength:3000,
+        maxLength:200,
      },
      imagen1: {
         type: String,
@@ -41,8 +41,8 @@ const habitacionSchema=new Schema({
       carasteristicas:{
          type:String,
          required:true,
-         maxLength:100,
-         minLength:100
+         maxLength:50,
+         minLength:10
       },
       fechasReservadas: [
          {

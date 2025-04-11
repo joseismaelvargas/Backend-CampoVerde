@@ -24,12 +24,7 @@ const reservaSchema = new Schema({
      
     },
      
-    salida: {
-        type:String,
-        required:[true, 'La fecha de salida es obligatoria'],
-       
-     
-    },
+   
     personas: {
       type: Number,
       required: true

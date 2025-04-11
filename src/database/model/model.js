@@ -41,7 +41,7 @@ const habitacionSchema=new Schema({
       fechasReservadas: [
          {
            fechaEntrada: { type:String, required: true },
-         fechaSalida: { type: String, required: true } 
+       
          }
          
        ]

@@ -38,6 +38,12 @@ const habitacionSchema=new Schema({
         maxLength:1000,
        minLength:10,
       },
+      carasteristicas:{
+         type:String,
+         required:true,
+         maxLength:100,
+         minLength:100
+      },
       fechasReservadas: [
          {
            fechaEntrada: { type:String, required: true },

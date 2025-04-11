@@ -9,13 +9,13 @@ const reservaSchema = new Schema({
     },
     Dni: {
       type: Number,
-      unique: true,
+   
       required: true
     },
     corre: {
       type: String,
       
-      unique:true
+     
     },
     entrada: {
         type:String,

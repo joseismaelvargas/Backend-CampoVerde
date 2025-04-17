@@ -33,6 +33,9 @@ const reservaSchema = new Schema({
       type: String,
       required: true
     },
+    pago:{
+      type:Number
+    }
   });
 const Reservas=mongoose.model("Reservas",reservaSchema)
 

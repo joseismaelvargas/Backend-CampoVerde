@@ -3,7 +3,7 @@ import Reservas from '../database/model/modelreserva.js'
 
 export const crearReservas=async (req,res)=>{
     try{
-        const { nombre, Dni, corre, entrada, salida, personas, tipo } = req.body;
+        const { nombre, Dni, corre, entrada, salida, personas, tipo,pago } = req.body;
 
       
         const reservaEcha = new Reservas({
@@ -14,6 +14,7 @@ export const crearReservas=async (req,res)=>{
           salida,
           personas,
           tipo,
+          pago
         });
      
          await reservaEcha.save()

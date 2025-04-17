@@ -22,7 +22,11 @@ const usuariosSchema=new Schema({
     correo:{
         type:String,
         required:true,
+    
 
+    },
+    rol:{
+        type:String
     }
 })
 usuariosSchema.plugin(script)

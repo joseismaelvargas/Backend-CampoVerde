@@ -9,7 +9,7 @@ const router=Router();
 router.route('/crear').post(crearHabitacion).get(mostrarHAbitacion)
 router.route('/editarHabitacion/:id').put(editarHabitacion)
 router.route('/eliminarHabitacion/:id').delete(borrarHabitacion)
-router.route('/').get(prueba),
+router.route('/').get(prueba)
 router.route('/reservarhabitacion/:id').post(reservarhabitacion)
 
 router.route('/crearUsuario').post(crearUsuario)

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { mostrarUsuario,borrarUsuario,editarUsuario, logearUsuario } from "../controllers/Usuarios.js";
+import { mostrarUsuario,borrarUsuario,editarUsuario, logearUsuario,crearUsuario } from "../controllers/Usuarios.js";
 import { crearHabitacion,borrarHabitacion, mostrarHAbitacion, editarHabitacion, reservarhabitacion} from "../controllers/Habitaciones.js";
-import { crearUsuario } from "../controllers/Usuarios.js";
+
 import { prueba } from "../controllers/Habitaciones.js";
 import { mostrarReserva,crearReservas, eliminarReserva, editarReserva } from "../controllers/reservas.js";
 

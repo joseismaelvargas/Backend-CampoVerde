@@ -1,5 +1,5 @@
 import mongoose ,{Schema}from "mongoose";
-import script from 'mongoose-bcrypt'
+import bcryptPlugin from 'mongoose-bcrypt';
 const usuariosSchema=new Schema({
     user:{
         type:String,
@@ -15,7 +15,7 @@ const usuariosSchema=new Schema({
     contraseña:{
         type:String,
         required:true,
-       script:true,
+        bcrypt:true,
         min:3,
         max:1000000
     },
@@ -30,6 +30,6 @@ const usuariosSchema=new Schema({
         required:true
     }
 })
-usuariosSchema.plugin(script)
+usuariosSchema.plugin(bcryptPlugin);
 const Usuario=mongoose.model('Usuario',usuariosSchema)
 export default Usuario

@@ -1,5 +1,5 @@
 import mongoose ,{Schema}from "mongoose";
-// import script from 'mongoose-bcrypt'
+import script from 'mongoose-bcrypt'
 const usuariosSchema=new Schema({
     user:{
         type:String,
@@ -15,7 +15,7 @@ const usuariosSchema=new Schema({
     contraseña:{
         type:String,
         required:true,
-       
+       script:true,
         min:3,
         max:1000000
     },

@@ -13,17 +13,17 @@ export const crearUsuario=async(req,res)=>{
     }
 }
 
-// export const mostrarUsuario=async(req,res)=>{
-//     try{
-//         const usuario=await Usuarios.find()
-//         res.status(200).json(usuario)
+export const mostrarUsuario=async(req,res)=>{
+    try{
+        const usuario=await Usuarios.find()
+        res.status(200).json(usuario)
 
 
-//     }catch(error){
-//         console.log(error)
-//         res.status(500).json({mensaje:"Ocurrio un error al mostrar los usuarios"})
-//     }
-// }
+    }catch(error){
+        console.log(error)
+        res.status(500).json({mensaje:"Ocurrio un error al mostrar los usuarios"})
+    }
+}
 
 export const borrarUsuario=async(req,res)=>{
     try{

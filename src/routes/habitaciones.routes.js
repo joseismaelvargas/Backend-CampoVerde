@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {mostrarUsuario, borrarUsuario,editarUsuario,crearUsuario } from "../controllers/Usuarios.js";
+import {mostrarUsuario, borrarUsuario,editarUsuario,crearUsuario,logearUsuario } from "../controllers/Usuarios.js";
 import { crearHabitacion,borrarHabitacion, mostrarHAbitacion, editarHabitacion, reservarhabitacion} from "../controllers/Habitaciones.js";
 
 import { prueba } from "../controllers/Habitaciones.js";
@@ -16,7 +16,7 @@ router.route('/crearUsuario').post(crearUsuario)
 router.route('/verusuarios').get(mostrarUsuario)
 router.route('/eliminarUsuario/:id').delete(borrarUsuario)
 router.route('/editarUsuario/:id').put(editarUsuario)
-
+router.route('/logear').post(logearUsuario)
 
 router.route('/verReservas').get(mostrarReserva)
 router.route('/crearReserva').post(crearReservas)

@@ -1,31 +1,5 @@
 
-
-import bcrypt from 'bcrypt';
 import Usuarios from '../database/model/modelUser.js'
-export const logearUsuario = async (req, res) => {
-
-    const { correo, contraseña } = req.body;
-   
-  
-    try {
-      const usuario = await Usuarios.findOne({ correo});
- 
-      if (!usuario) {
-        return res.status(404).json({ mensaje: "usuario no encontrado" });
-      }
-  
-      const passwordValida = await bcrypt.compare(contraseña, usuario.contraseña);
-  
-      if (!passwordValida) {
-        return res.status(401).json({ mensaje: "Contraseña incorrecta" });
-      }
-  
-      res.status(200).json({ mensaje: "Login exitoso", rol: usuario.rol });
-    } catch (error) {
-      console.error("Error al logear:", error);
-      res.status(500).json({ mensaje: "Error interno del servidor" });
-    }
-  };
 
 export const crearUsuario=async(req,res)=>{
     try{
@@ -38,17 +12,18 @@ export const crearUsuario=async(req,res)=>{
         res.status(500).json({ mensaje: "Error interno", error: error.message });
     }
 }
-export const mostrarUsuario=async(req,res)=>{
-    try{
-        const usuario=await Usuarios.find()
-        res.status(200).json(usuario)
+
+// export const mostrarUsuario=async(req,res)=>{
+//     try{
+//         const usuario=await Usuarios.find()
+//         res.status(200).json(usuario)
 
 
-    }catch(error){
-        console.log(error)
-        res.status(500).json({mensaje:"Ocurrio un error al mostrar los usuarios"})
-    }
-}
+//     }catch(error){
+//         console.log(error)
+//         res.status(500).json({mensaje:"Ocurrio un error al mostrar los usuarios"})
+//     }
+// }
 
 export const borrarUsuario=async(req,res)=>{
     try{

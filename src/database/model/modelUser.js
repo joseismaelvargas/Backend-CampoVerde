@@ -30,6 +30,6 @@ const usuariosSchema=new Schema({
         required:true
     }
 })
-// usuariosSchema.plugin(script)
+usuariosSchema.plugin(script)
 const Usuario=mongoose.model('Usuario',usuariosSchema)
 export default Usuario

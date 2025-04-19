@@ -1,31 +1,31 @@
 
 
-// import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import Usuarios from '../database/model/modelUser.js'
-// export const logearUsuario = async (req, res) => {
+export const logearUsuario = async (req, res) => {
 
-//     const { correo, contraseña } = req.body;
+    const { correo, contraseña } = req.body;
    
   
-//     try {
-//       const usuario = await Usuarios.findOne({ correo});
+    try {
+      const usuario = await Usuarios.findOne({ correo});
  
-//       if (!usuario) {
-//         return res.status(404).json({ mensaje: "usuario no encontrado" });
-//       }
+      if (!usuario) {
+        return res.status(404).json({ mensaje: "usuario no encontrado" });
+      }
   
-//       const passwordValida = await bcrypt.compare(contraseña, usuario.contraseña);
+      const passwordValida = await bcrypt.compare(contraseña, usuario.contraseña);
   
-//       if (!passwordValida) {
-//         return res.status(401).json({ mensaje: "Contraseña incorrecta" });
-//       }
+      if (!passwordValida) {
+        return res.status(401).json({ mensaje: "Contraseña incorrecta" });
+      }
   
-//       res.status(200).json({ mensaje: "Login exitoso", rol: usuario.rol });
-//     } catch (error) {
-//       console.error("Error al logear:", error);
-//       res.status(500).json({ mensaje: "Error interno del servidor" });
-//     }
-//   };
+      res.status(200).json({ mensaje: "Login exitoso", rol: usuario.rol });
+    } catch (error) {
+      console.error("Error al logear:", error);
+      res.status(500).json({ mensaje: "Error interno del servidor" });
+    }
+  };
 
 export const crearUsuario=async(req,res)=>{
     try{

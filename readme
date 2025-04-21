@@ -1,0 +1,30 @@
+# Backend - Hotel Campo Verde
+
+Este es el backend del sistema de gestión para el **Hotel Campo Verde**, desarrollado con **Node.js**, **Express.js** y **MongoDB**. Incluye autenticación, conexión a base de datos y middlewares para facilitar el desarrollo de una API RESTful.
+
+## 📦 Información del Proyecto
+
+- **Nombre:** backend-campoverde  
+- **Versión:** 1.0.0  
+- **Autor:** Ismael Vargas  
+- **Licencia:** ISC  
+- **Descripción:** Backend para la gestión de reservas, usuarios y servicios del Hotel Campo Verde.
+
+## 🚀 Tecnologías utilizadas
+
+- **Node.js**  
+- **Express.js**  
+- **MongoDB** con **Mongoose**  
+- **bcryptjs** para encriptación de contraseñas  
+- **CORS** para manejo de políticas de acceso  
+- **Morgan** para logging de peticiones HTTP  
+- **mongoose-bcrypt** como plugin para la seguridad en esquemas
+
+## ⚙️ Scripts
+
+| Comando | Descripción |
+|--------|-------------|
+| `npm start` | Ejecuta el servidor en producción |
+| `npm run dev` | Ejecuta el servidor en modo desarrollo con `.env` y recarga automática |
+
+## 📂 Estructura básica (sugerida)

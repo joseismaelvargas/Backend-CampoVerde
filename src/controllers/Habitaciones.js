@@ -1,11 +1,17 @@
 import Habitacion from "../database/model/model.js"
-
+import { saveImage } from "./multer.js";
 export const prueba = (req, res) => {
     res.status(200).json({ mensaje: "Funciona correctamente" });
   };
 //CREAR
 export const crearHabitacion=async(req,res)=>{
+
     try{
+        let Imagenes=null
+    if(req.file){
+      Imagenes=await saveImage(req.file)
+    }
+    console.log(Imagenes)
         const habitacionNueva=new Habitacion(req.body);
         await habitacionNueva.save();
         res.status(201).json({mensaje:"La  habitacion Fue Creada con exito"})

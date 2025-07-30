@@ -20,24 +20,11 @@ const habitacionSchema=new Schema({
       minLength:3,
         maxLength:200,
      },
-     imagen1: {
-        type: String,
-        required: true,
-       maxLength:1000,
-       minLength:10,
-      },
-      imagen2: {
-        type: String,
-        required: true,
-        maxLength:1000,
-       minLength:10,
-      },
-      imagen3: {
-        type: String,
-        required: true,
-        maxLength:1000,
-       minLength:10,
-      },
+       ImagenesHabitacion1:{
+         type:String,
+         required:true
+
+       },
       carasteristicas:{
          type:String,
          required:true,

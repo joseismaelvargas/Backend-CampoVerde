@@ -24,8 +24,9 @@ export const saveImage=async (req,res)=>{
       resultados.push(nameUnique);
     }
     res.status(200).json({ mensaje: "Imágenes guardadas", archivos: resultados });
-   
+     console.log(nameUnique)
     return nameUnique
+  
     }catch(error){
         console.error("Error al guardar Imagen",error)
         return null

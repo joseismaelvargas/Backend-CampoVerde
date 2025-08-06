@@ -12,7 +12,7 @@ export const crearHabitacion=async(req,res)=>{
     if (req.files && req.files.length > 0) {
       for (const file of req.files) {
         const nombreImagen = await saveImage(file);
-        Imagenes.push(`http://localhost:3000/uploads/${nombreImagen}`);
+        Imagenes.push(`https://backend-campoverde-production.up.railway.app/uploads/${nombreImagen}`);
       }
     }
     console.log("BODY:", req.body);
@@ -70,7 +70,7 @@ export const editarHabitacion=async(req,res)=>{
          if (req.files && req.files.length > 0) {
       for (const file of req.files) {
         const nombreImagen = await saveImage(file);
-        Imagenes.push(`http://localhost:3000/uploads/${nombreImagen}`);
+        Imagenes.push(`https://backend-campoverde-production.up.railway.app/uploads/${nombreImagen}`);
       }
 
     }

@@ -1,6 +1,6 @@
 
 
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 import Usuarios from '../database/model/modelUser.js'
 export const logearUsuario = async (req, res) => {
 
@@ -14,11 +14,11 @@ export const logearUsuario = async (req, res) => {
         return res.status(404).json({ mensaje: "usuario no encontrado" });
       }
   
-      const passwordValida = await bcrypt.compare(contraseña, usuario.contraseña);
+    //   const passwordValida = await bcrypt.compare(contraseña, usuario.contraseña);
   
-      if (!passwordValida) {
-        return res.status(401).json({ mensaje: "Contraseña incorrecta" });
-      }
+    //   if (!passwordValida) {
+    //     return res.status(401).json({ mensaje: "Contraseña incorrecta" });
+    //   }
   
       res.status(200).json({ mensaje: "Login exitoso", rol: usuario.rol });
     } catch (error) {

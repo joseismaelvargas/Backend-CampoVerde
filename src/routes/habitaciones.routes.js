@@ -1,14 +1,14 @@
 import { Router } from "express";
 import {mostrarUsuario, borrarUsuario,editarUsuario,crearUsuario,logearUsuario } from "../controllers/Usuarios.js";
-import { borrarHabitacion, mostrarHAbitacion, editarHabitacion, reservarhabitacion} from "../controllers/Habitaciones.js";
-import { saveImage, subirImagenes } from "../controllers/multer.js";
+import { borrarHabitacion, mostrarHAbitacion, editarHabitacion, reservarhabitacion, crearHabitacion} from "../controllers/Habitaciones.js";
+import { subirImagenes } from "../controllers/multer.js";
 import { prueba } from "../controllers/Habitaciones.js";
 import { mostrarReserva,crearReservas, eliminarReserva, editarReserva } from "../controllers/reservas.js";
 
 const router=Router();
 
-router.route('/crear').post(subirImagenes,saveImage).get(mostrarHAbitacion)
-router.route('/editarHabitacion/:id').put(editarHabitacion)
+router.route('/crear').post(subirImagenes,crearHabitacion).get(mostrarHAbitacion)
+router.route('/editarHabitacion/:id').put(subirImagenes,editarHabitacion)
 router.route('/eliminarHabitacion/:id').delete(borrarHabitacion)
 router.route('/').get(prueba)
 router.route('/reservarhabitacion/:id').post(reservarhabitacion)

@@ -7,12 +7,21 @@ export const prueba = (req, res) => {
 export const crearHabitacion=async(req,res)=>{
 
     try{
-        let Imagenes=null
-    if(req.file){
-      Imagenes=await saveImage(req.file)
+       let Imagenes = [];
+   
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const nombreImagen = await saveImage(file);
+        Imagenes.push(`http://localhost:3000/uploads/${nombreImagen}`);
+      }
     }
+    console.log("BODY:", req.body);
+console.log("FILES:", req.files);
+console.log("IMÁGENES PROCESADAS:", Imagenes);
     console.log(Imagenes)
-        const habitacionNueva=new Habitacion(req.body);
+        const habitacionNueva=new Habitacion({...req.body,
+          ImagenesHabitacion:Imagenes
+        });
         await habitacionNueva.save();
         res.status(201).json({mensaje:"La  habitacion Fue Creada con exito"})
     }catch(error){
@@ -51,13 +60,24 @@ export const borrarHabitacion=async(req,res)=>{
 }
 export const editarHabitacion=async(req,res)=>{
     try{
+       let Imagenes=[]
            const habitacionBuscada=await Habitacion.findById(req.params.id)
            if (!habitacionBuscada) {
             return res
               .status(404)
               .json({ mensaje: "La habitacion solicitada no existe" });
           }
-           await Habitacion.findByIdAndUpdate(req.params.id, req.body);
+         if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const nombreImagen = await saveImage(file);
+        Imagenes.push(`http://localhost:3000/uploads/${nombreImagen}`);
+      }
+
+    }
+    console.log(Imagenes)
+           await Habitacion.findByIdAndUpdate(req.params.id,{...req.body,
+               ImagenesHabitacion:Imagenes
+           });
           res.status(200).json({mensaje:"El edit ocurrio con exito"})
 
     }catch(error){

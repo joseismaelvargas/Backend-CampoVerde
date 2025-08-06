@@ -20,9 +20,9 @@ const habitacionSchema=new Schema({
       minLength:3,
         maxLength:200,
      },
-       ImagenesHabitacion1:{
-         type:String,
-         required:true
+       ImagenesHabitacion:{
+         type:Array,
+    
 
        },
       carasteristicas:{
